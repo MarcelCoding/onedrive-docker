@@ -1,0 +1,3 @@
+[submodule "onedrive"]
+	path = onedrive
+	url = https://github.com/abraunegg/onedrive.git
