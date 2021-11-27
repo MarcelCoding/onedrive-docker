@@ -15,23 +15,17 @@ jobs:
 
     strategy:
       matrix:
-        flavor: [ centos, aarch64, alpine, rpi, stretch ]
+        flavor: [ fedora, alpine ] # debian
         include:
-          - flavor: centos
-            dockerfile: ./onedrive/contrib/docker/Dockerfile
-            platforms: linux/amd64
-          - flavor: aarch64
-            dockerfile: ./onedrive/contrib/docker/Dockerfile-aarch64
-            platforms: linux/arm64/v8
+          - flavor: fedora
+            dockerfile: ./Dockerfile.fedora
+            platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
+#          - flavor: debian
+#            dockerfile: ./Dockerfile.debian
+#            platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           - flavor: alpine
             dockerfile: ./Dockerfile.alpine
             platforms: linux/amd64,linux/arm64/v8
-          - flavor: rpi
-            dockerfile: ./onedrive/contrib/docker/Dockerfile-rpi
-            platforms: linux/arm/v7
-          - flavor: stretch
-            dockerfile: ./onedrive/contrib/docker/Dockerfile-stretch
-            platforms: linux/amd64
 
     steps:
       - uses: actions/checkout@v2
@@ -50,7 +44,7 @@ jobs:
             {{version}}
             {{major}}.{{minor}}
           flavor: ${{ matrix.flavor }}
-          main-flavor: ${{ matrix.flavor == 'default' }}
+#          main-flavor: ${{ matrix.flavor == 'default' }}
 
       - uses: docker/setup-qemu-action@v1
         if: matrix.platforms != 'linux/amd64'
