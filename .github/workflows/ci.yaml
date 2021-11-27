@@ -18,19 +18,19 @@ jobs:
         flavor: [ centos, aarch64, alpine, rpi, stretch ]
         include:
           - flavor: centos
-            dockerfile: Dockerfile
+            dockerfile: ./onedrive/contrib/docker/Dockerfile
             platforms: linux/amd64
           - flavor: aarch64
-            dockerfile: Dockerfile-aarch64
+            dockerfile: ./onedrive/contrib/docker/Dockerfile-aarch64
             platforms: linux/arm64/v8
           - flavor: alpine
-            dockerfile: Dockerfile-alpine
+            dockerfile: ./Dockerfile.alpine
             platforms: linux/amd64,linux/arm64/v8
           - flavor: rpi
-            dockerfile: Dockerfile-rpi
+            dockerfile: ./onedrive/contrib/docker/Dockerfile-rpi
             platforms: linux/arm/v7
           - flavor: stretch
-            dockerfile: Dockerfile-stretch
+            dockerfile: ./onedrive/contrib/docker/Dockerfile-stretch
             platforms: linux/amd64
 
     steps:
@@ -84,7 +84,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./onedrive
-          file: ./onedrive/contrib/docker/${{ matrix.dockerfile }}
+          file: ${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.docker_meta.outputs.tags }}
