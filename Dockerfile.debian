@@ -6,9 +6,6 @@ ARG LDC_VERSION=1.17.0
 FROM debian:${DEBIAN_VERSION} AS builder-onedrive
 ARG LDC_VERSION
 
-# libc6 git libxml2-dev
-# libc6 libgcc-s1 libphobos2-ldc-shared-dev libstdc++6	zlib1g
-
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends build-essential curl ca-certificates libcurl4-openssl-dev libsqlite3-dev libxml2-dev pkg-config \
  && rm -rf /var/lib/apt/lists/*
@@ -46,7 +43,7 @@ RUN ./configure DC=/opt/ldc/bin/ldmd2 \
 FROM debian:${DEBIAN_VERSION}-slim
 
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends gosu libcurl4 libsqlite3-0 \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends gosu libcurl4 libsqlite3-0 ca-certificates \
  && rm -rf /var/lib/apt/lists/* \
  && mkdir -p /onedrive/conf /onedrive/data
 
