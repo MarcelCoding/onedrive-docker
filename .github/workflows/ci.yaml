@@ -44,7 +44,7 @@ jobs:
             {{version}}
             {{major}}.{{minor}}
           flavor: ${{ matrix.flavor }}
-      #          main-flavor: ${{ matrix.flavor == 'default' }}
+          main-flavor: ${{ matrix.flavor == 'debian' }}
 
       - uses: docker/setup-qemu-action@v1
         if: matrix.platforms != 'linux/amd64'
