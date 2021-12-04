@@ -25,7 +25,7 @@ RUN ./configure \
 
 FROM fedora:${FEDORA_VERSION}
 
-RUN dnf install -y libcurl-devel sqlite ldc-libs \
+RUN dnf install -y libcurl sqlite ldc-libs \
  && dnf clean all \
  && mkdir -p /onedrive/conf /onedrive/data
 
