@@ -5,27 +5,19 @@ Pre-Build OneDrive Docker Images.
 ## Images
 
 ```bash
-# centos - amd64
+# debain - amd64, armv7 (armhf), arm64 (aarch64)
 marcelcoding/onedrive:latest,
-marcelcoding/onedrive:centos,
+marcelcoding/onedrive:debain,
 ghcr.io/marcelcoding/onedrive:latest,
-ghcr.io/marcelcoding/onedrive:centos
+ghcr.io/marcelcoding/onedrive:debain
 
-# aarch64 - aarch64
+# fedora - amd64, armv7 (armhf), arm64 (aarch64)
 marcelcoding/onedrive:aarch64,
 ghcr.io/marcelcoding/onedrive:aarch64
 
-# alpine - amd64, aarch64
+# alpine - amd64, arm64 (aarch64)
 marcelcoding/onedrive:alpine,
 ghcr.io/marcelcoding/onedrive:alpine
-
-# rpi - armhf
-marcelcoding/onedrive:rpi,
-ghcr.io/marcelcoding/onedrive:rpi
-
-# stretch - amd64
-marcelcoding/onedrive:stretch,
-ghcr.io/marcelcoding/onedrive:stretch
 ```
 
 ## Deployment
