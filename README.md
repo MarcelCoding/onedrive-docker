@@ -11,7 +11,7 @@ marcelcoding/onedrive:debain,
 ghcr.io/marcelcoding/onedrive:latest,
 ghcr.io/marcelcoding/onedrive:debain
 
-# fedora - amd64, armv7 (armhf), arm64 (aarch64)
+# fedora - amd64, arm64 (aarch64)
 marcelcoding/onedrive:aarch64,
 ghcr.io/marcelcoding/onedrive:aarch64
 
