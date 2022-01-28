@@ -1,6 +1,6 @@
 # -*-Dockerfile-*-
 
-ARG DEBIAN_VERSION=buster
+ARG DEBIAN_VERSION=bullseye
 ARG LDC_VERSION=1.28.1
 ARG LDC_ARM_VERSION=1.17.0
 
